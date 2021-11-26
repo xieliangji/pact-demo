@@ -16,6 +16,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * Coder   谢良基
  * Date    2021/11/20 14:43
+ *
+ * --------------------------------------------------
+ * Step2 - Client Tested but integration fails
+ * 1) Test our client code hits the expected endpoint
+ * 2) That the response is marshalled into an object that is usable, with the correct ID
  */
 public class ProductServiceTest {
 
@@ -39,6 +44,7 @@ public class ProductServiceTest {
 
     @Test
     void getAllProducts() {
+        // mockserver stubbing - /products
         wireMockServer.stubFor(get(urlPathEqualTo("/products"))
                 .willReturn(aResponse()
                         .withStatus(200)
@@ -59,6 +65,7 @@ public class ProductServiceTest {
 
     @Test
     void getProductById() {
+        // mockserver stubbing - /product/{id}
         wireMockServer.stubFor(get(urlPathEqualTo("/product/50"))
                 .willReturn(aResponse()
                         .withStatus(200)

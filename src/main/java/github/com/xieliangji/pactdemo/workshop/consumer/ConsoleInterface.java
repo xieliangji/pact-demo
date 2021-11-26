@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
  * Coder   谢良基
  * Date    2021/11/20 14:28
  */
-@Component
+//@Component
 public class ConsoleInterface implements CommandLineRunner {
 
     private final ProductService productService;

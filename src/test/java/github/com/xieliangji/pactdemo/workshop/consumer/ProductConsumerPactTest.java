@@ -22,6 +22,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 /**
  * Coder   谢良基
  * Date    2021/11/20 14:57
+ *
+ * ---------------------------------------------
+ * Step3 - Pact to the rescue
+ *
+ * Provider states: help define the state that the provider should be in for specific interactions.
+ *  -- 1) product with ID 10 exists
+ *  -- 2) products exist
+ *
  */
 @ExtendWith(PactConsumerTestExt.class)
 public class ProductConsumerPactTest {
@@ -33,8 +41,8 @@ public class ProductConsumerPactTest {
     }
 
     @Pact(consumer = "ConsumerApplication", provider = "ProviderApplication")
-    public RequestResponsePact getAllProducts(PactDslWithProvider provider) {
-        return provider.given("products exist")
+    RequestResponsePact getAllProducts(PactDslWithProvider provider) {
+        return provider.given("products exist") // define the state of an interaction
                 .uponReceiving("get all products")
                 .method("GET")
                 .path("/products")
@@ -109,7 +117,7 @@ public class ProductConsumerPactTest {
 
     @Pact(consumer = "ConsumerApplication", provider = "ProviderApplication")
     public RequestResponsePact productWithNoAuthToken(PactDslWithProvider provider) {
-        return provider.given("product with ID exists")
+        return provider.given("product with ID 10 exists")
                 .uponReceiving("get product by id 10 with no auth token")
                 .method("GET")
                 .path("/product/10")

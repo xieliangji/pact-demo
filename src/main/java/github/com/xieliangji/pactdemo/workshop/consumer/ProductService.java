@@ -14,6 +14,9 @@ import java.util.List;
 /**
  * Coder   谢良基
  * Date    2021/11/20 14:19
+ *
+ * -----------------------------------------------------------
+ * Step1 - Simple Consumer calling Provider
  */
 @Service
 public class ProductService {

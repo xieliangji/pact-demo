@@ -18,11 +18,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation ('org.springframework.boot:spring-boot-starter-test') {
+		// JUnit Vintage provides a TestEngine for running JUnit3 and JUnit4 based tests on the platform.
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	// for pact
 	testImplementation 'au.com.dius.pact.consumer:java8:4.1.7'
 	testImplementation 'au.com.dius.pact.consumer:junit5:4.1.7'
+	testImplementation 'au.com.dius.pact.provider:junit5:4.1.7'
 	testImplementation 'com.github.tomakehurst:wiremock:2.27.2'
 }
 
